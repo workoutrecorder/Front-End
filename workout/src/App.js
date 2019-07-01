@@ -19,7 +19,7 @@ render(){
         
       <h1>Workout Recorder</h1>
       <MainView />
-      <LoginView />
+      {/* <LoginView /> */}
     </div>
   );
 }

@@ -1,24 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class Workouts extends Component {
-    constructor(){
-    super();
-    this.state = {
-        workouts: [
-            {name:'Leg Day', date: Date()},
-            {name:'Bicep Day', date: Date()}
-        ]
-    }
-    }
-    render() {
-        return (
-            <div>
-                {this.state.workouts.map(workout => {
-                    return workout.name
-                })}
-            </div>
-        )
-    }
+const Workouts = (props) => {
+    return (
+        <div>
+            {props.workouts.map(workout => {
+                return <div key={workout.id}>
+                    <h2>{workout.name}</h2>
+                    <h3>{workout.date}</h3>
+                </div>
+            })}
+        </div>
+    )
 }
 
 export default Workouts
+
