@@ -1,27 +1,31 @@
 import React from 'react';
 import './App.scss';
-import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import MainView from "./views/MainView"
 import LoginView from "./views/LoginView"
+import authenticate from "./login/authenticate"
 
-export class App extends React.Component {
-  constructor(props){  
-    super(props);  
-    this.state = { 
-       
-    };  
-    }  
+class App extends React.Component {
+    
+  componentDidMount(){
+    console.log(window.location.pathname)
 
-render(){
-  return (
-    <div className="App">
-        
-      <h1>Workout Recorder</h1>
-      <MainView />
-      {/* <LoginView /> */}
-    </div>
-  );
+    if(!localStorage.getItem("userdata") && window.location.pathname !== '/signup'){
+    this.props.history.push('./login');
+    }
+  }
+
+
+
+  render() {
+    return (
+      <div className="App">
+       <Auth/>
+      </div>
+    );
+  }
 }
-}
-export default App;
+
+const Auth = withRouter(authenticate(MainView)(LoginView));
+
+export default withRouter(App);
