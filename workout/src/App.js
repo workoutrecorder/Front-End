@@ -21,8 +21,9 @@ class App extends React.Component {
     return (
 
       <div className="App">
+       {/* <Auth/> */}
+       <MainView/>
         <ToastContainer/>
-       <Auth/>
       </div>
     );
   }
