@@ -37,8 +37,8 @@ export class Login extends Component {
             </div>
 
            </div>
-        </form> 
         <button className = "login-button" onClick = {this.props.signIn}>Login</button>
+        </form> 
         <p>Don't have an account?</p>
       </div>
     )

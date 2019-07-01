@@ -1,3 +1,74 @@
+* {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3.2rem;
+  padding-bottom: 10px;
+}
+
+h4 {
+  font-size: 2.5rem;
+  padding-bottom: 10px;
+}
+
+p {
+  line-height: 1.5;
+  font-size: 1.6rem;
+  padding-bottom: 10px;
+}
+
 .App {
   text-align: center;
+  margin: 0 auto;
+}
+//Login Nav
+.lognav-wrapper {
+  display: flex;
+  justify-content: center;
+
+  a {
+    padding: 4rem;
+    font-size: 1.8rem;
+    text-decoration: none;
+  }
+}
+
+//Login Styling
+
+.login-wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 33%;
+  border: 1px solid black;
+
+  i {
+    font-size: 1.4rem;
+    margin-right: 1rem;
+  }
+
+  input:first {
+    margin-top: 5rem;
+  }
+
+  input {
+    height: 5rem;
+    width: 25rem;
+    font-size: 1.6rem;
+  }
+
+  button {
+    height: 5rem;
+    width: 25rem;
+    margin-left: 2.1rem;
+    font-size: 1.6rem;
+  }
 }
