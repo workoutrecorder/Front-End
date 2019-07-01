@@ -18,7 +18,7 @@ export class Login extends Component {
 
             <div>
               <i className="fas fa-user"></i>
-              <input placeholder = "Username"
+              <input placeholder = "Username..."
               type = "text"
               value = {this.props.username}
               name = "username"
@@ -37,8 +37,8 @@ export class Login extends Component {
             </div>
 
            </div>
-        </form> 
         <button className = "login-button" onClick = {this.props.signIn}>Login</button>
+        </form> 
         <p>Don't have an account?</p>
       </div>
     )

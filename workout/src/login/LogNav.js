@@ -6,9 +6,11 @@ import Register from './Register'
 
 const LogNav = (props) => {
     return ( 
-        <div>
-            <Link to="/login" component = {Login}> Login </Link>
-            <Link to="/register" component = {Register}>  Register </Link>    
+        <div className = "lognav-wrapper">
+            <nav>
+                <Link to="/login" component = {Login}> Login </Link>
+                <Link to="/register" component = {Register}>  Register </Link>
+            </nav>
         </div>
      );
 }

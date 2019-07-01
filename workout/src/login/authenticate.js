@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { toast } from "react-toastify";
 
 const url = "http://localhost:3300";
 
@@ -16,13 +17,13 @@ const authenticate = App => Login =>
         
         componentDidMount(){
             
-            if(localStorage.getItem('userdata')){
-                const userdata = JSON.parse(localStorage.getItem('userdata'));
-                axios.post(`${url}/auth/checkauth`, {token: userdata.token}).then(res => {
-                    console.log(res.data)
-                    res.data ? this.setState({ loggedIn: true}) : localStorage.clear();
-                }).catch(error => console.log(error));
-            }
+            // if(localStorage.getItem('userdata')){
+            //     const userdata = JSON.parse(localStorage.getItem('userdata'));
+            //     axios.post(`${url}/auth/checkauth`, {token: userdata.token}).then(res => {
+            //         console.log(res.data)
+            //         res.data ? this.setState({ loggedIn: true}) : localStorage.clear();
+            //     }).catch(error => console.log(error));
+            // }
         }
 
         handleChanges = event => {
@@ -33,7 +34,7 @@ const authenticate = App => Login =>
 
         //requires username and password
         signIn = event => {
-            event.persist();
+            event.preventDefault();
             return axios
                 .post(`${url}/auth/login`,{
                     username: this.state.username,
@@ -45,8 +46,9 @@ const authenticate = App => Login =>
                     this.setState({
                         loggedIn: true
                     });
+                    toast.success("Login Successful!")
                 })
-                .catch(err => alert(err));
+                .catch(err => toast.error("You definitely did something wrong!!!"));
             }
 
         
