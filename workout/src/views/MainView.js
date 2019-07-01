@@ -26,7 +26,7 @@ export class MainView extends Component {
     getWorkouts = value => {
      let userData =JSON.parse(localStorage.getItem('userdata'))
      console.log(userData.token)
-     axios.get(`${url}/users/${userData.user_id}/workouts`, { headers:{Authorization: userData.token, "Content-Type": "application/json"}})
+     axios.get(`${url}/users/${userData.user_id}/workouts`, { headers:{ Authorization: userData.token }})
         .then(res => {
             this.setState({
                 exercises: res.data
@@ -78,6 +78,7 @@ export class MainView extends Component {
         let {workouts} = this.state
         return (
             <div>
+                <p>Hello</p>
                 <Workouts workouts={workouts}/>
             </div>
         )
