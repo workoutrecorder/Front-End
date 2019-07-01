@@ -1,12 +1,27 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import axios from 'axios';
+import { Route } from 'react-router-dom';
+import MainView from "./views/MainView"
+import LoginView from "./views/LoginView"
 
-function App() {
+export class App extends React.Component {
+  constructor(props){  
+    super(props);  
+    this.state = { 
+       
+    };  
+    }  
+
+render(){
   return (
     <div className="App">
-      <h2>Hi</h2>
+        
+      <h1>Workout Recorder</h1>
+      <MainView />
+      <LoginView />
     </div>
   );
 }
-
+}
 export default App;
