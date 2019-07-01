@@ -110,8 +110,8 @@ class Register extends React.Component {
                     />
                     </div>
                 
-                </form>
                 <button onClick = {this.register}> Submit </button>
+                </form>
                 <p>Already have an account?</p>
             </div>
          );

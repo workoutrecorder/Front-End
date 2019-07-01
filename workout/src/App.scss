@@ -28,47 +28,117 @@ p {
   text-align: center;
   margin: 0 auto;
 }
+
 //Login Nav
 .lognav-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid black;
+  background: white;
+  height: 10rem;
 
   a {
-    padding: 4rem;
-    font-size: 1.8rem;
+    padding: 0 2rem 0 2rem;
+    margin: 0 2rem 0 2rem;
+    font-size: 2rem;
     text-decoration: none;
+    color: black;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+
+    &:hover {
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+    }
   }
 }
 
 //Login Styling
 
 .login-wrapper {
-  margin: 0 auto;
+  margin: 5rem auto;
+  padding: 5rem;
+  background: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 33%;
-  border: 1px solid black;
+  width: 40%;
+  box-shadow: 1px 1px 5px black;
+  background-image: linear-gradient(to right,#6d6b6b, #a8a5a5, #f3f3f3 );
 
   i {
     font-size: 1.4rem;
     margin-right: 1rem;
   }
 
-  input:first {
-    margin-top: 5rem;
-  }
-
   input {
+    border: 1px solid black;
     height: 5rem;
-    width: 25rem;
+    width: 30rem;
     font-size: 1.6rem;
+    margin: 1rem;
+    padding: 1rem;
   }
 
   button {
     height: 5rem;
-    width: 25rem;
+    width: 30rem;
+    margin-left: 2.1rem;
+    font-size: 1.8rem;
+    border: 1px solid black;
+    color:white;
+    background: rgb(134, 181, 228);
+    transition: 1s;
+
+    &:hover {
+      background: rgb(32, 173, 173);
+      transition: 1s;
+    }
+  }
+}
+
+//Register Page Styling
+
+
+.register-wrapper {
+  margin: 5rem auto;
+  padding: 5rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  background-image: linear-gradient(to right,#6d6b6b, #a8a5a5, #f3f3f3 );
+  box-shadow: 1px 1px 5px black;
+
+  i {
+    font-size: 1.4rem;
+    margin-right: 1rem;
+  }
+
+  input {
+    border: 1px solid black;
+    height: 5rem;
+    width: 30rem;
+    font-size: 1.6rem;
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  button {
+    height: 5rem;
+    width: 30rem;
     margin-left: 2.1rem;
     font-size: 1.6rem;
+    border: 1px solid black;
+    background: rgb(134, 181, 228);
+    color: white;
+    transition: 1s;
+
+    &:hover {
+      background: rgb(32, 173, 173);
+      transition: 1s;
+    }
   }
 }

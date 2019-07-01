@@ -18,7 +18,7 @@ export class Login extends Component {
 
             <div>
               <i className="fas fa-user"></i>
-              <input placeholder = "Username"
+              <input placeholder = "Username..."
               type = "text"
               value = {this.props.username}
               name = "username"
