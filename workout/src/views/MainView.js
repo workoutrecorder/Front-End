@@ -17,58 +17,61 @@ export class MainView extends Component {
 
     componentDidMount = () => {
         this.getWorkouts()
-        this.getExercises()
-        this.getTargetArea()
-        this.getSets()
+        // this.getExercises()
+        // this.getTargetArea()
+        // this.getSets()
     }
 
     // Make ID dynamic
     getWorkouts = value => {
-        axios.get(`${url}/users/:id/workouts`)
-        .then(res => {
-            this.setState({
-                workouts: res.data
-            })
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
-
-    getExercises = value => {
-        axios.get(`${url}/workouts/:id/exercises`)
+     let userData =JSON.parse(localStorage.getItem('userdata'))
+     console.log(userData.token)
+     axios.get(`${url}/users/${userData.user_id}/workouts`, { headers:{Authorization: userData.token, "Content-Type": "application/json"}})
         .then(res => {
             this.setState({
                 exercises: res.data
             })
         })
         .catch(err => {
+            console.log(JSON.stringify(userData.token))
             console.log(err)
         })
     }
 
-    getTargetArea = value => {
-        axios.get(`${url}/exercises/:id/targets`)
-        .then(res => {
-            this.setState({
-                targetArea: res.data
-            })
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
-    getSets = value => {
-        axios.get(`${url}/exercises/:id/sets`)
-        .then(res => {
-            this.setState({
-                sets: res.data
-            })
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
+    // getExercises = value => {
+    //     axios.get(`${url}/workouts/1/exercises/`, {headers:{Authorization:localStorage.getItem('token')}})
+    //     .then(res => {
+    //         this.setState({
+    //             exercises: res.data
+    //         })
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+    // }
+
+    // getTargetArea = value => {
+    //     axios.get(`${url}/exercises/1/targets/`, {headers:{Authorization: localStorage.getItem('token')}})
+    //     .then(res => {
+    //         this.setState({
+    //             targetArea: res.data
+    //         })
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+    // }
+    // getSets = value => {
+    //     axios.get(`${url}/exercises/1/sets/`, {headers:{Authorization:localStorage.getItem('token')}})
+    //     .then(res => {
+    //         this.setState({
+    //             sets: res.data
+    //         })
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+    // }
 
 
     render() {

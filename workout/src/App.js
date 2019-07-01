@@ -10,7 +10,7 @@ class App extends React.Component {
   componentDidMount(){
     console.log(window.location.pathname)
 
-    if(!localStorage.getItem("userdata") && window.location.pathname !== '/signup'){
+    if(!localStorage.getItem("userdata") && window.location.pathname !== '/register'){
     this.props.history.push('./login');
     }
   }
