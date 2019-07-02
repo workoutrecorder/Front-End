@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PostExercises from './PostExercises'
 import TargetArea from "./TargetArea"
 import Sets from "./Sets"
 
@@ -11,6 +12,7 @@ export class Exercises extends Component {
         console.log("target",targetArea)
         return (
             <div>
+                <PostExercises/>
                 {this.props.exercises.map(exercise => {
                 return <div className="exerciseContainer" key={exercise.id}>
                     <h2 onClick={() => {
