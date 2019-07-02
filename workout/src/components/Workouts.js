@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Exercises from "./Exercises"
+import PostWorkouts from './PostWorkouts';
 
 let url = 'http://localhost:3300'
+let userData =JSON.parse(localStorage.getItem('userdata'))
 
 export class Workouts extends Component {
     constructor(){
@@ -17,16 +19,12 @@ export class Workouts extends Component {
     
     componentDidMount = () => {
         this.getWorkouts()
-        // this.getExercises()
-        // this.getTargetArea()
-        // this.getSets()
     }
     
     // Make ID dynamic
     getWorkouts = value => {
-     let userData =JSON.parse(localStorage.getItem('userdata'))
     //  axios.get(`${url}/users/${userData.user_id}/workouts`, { headers:{Authorization: userData.token}})
-     axios.get(`${url}/users/${2}/workouts`)
+     axios.get(`${url}/users/${1}/workouts`)
         .then(res => {
             console.log(res.data)
             this.setState({
@@ -39,12 +37,12 @@ export class Workouts extends Component {
         })
     }
 
-    getExercises = value => {
-        let userData =JSON.parse(localStorage.getItem('userdata'))
+    getExercises = event => {
         // axios.get(`${url}/workouts/${1}/exercises`, { headers:{Authorization: userData.token}})
-        axios.get(`${url}/workouts/${1}/exercises`)
+        event.preventDefault()
+        axios.get(`${url}/workouts/${1}/exercises/`)
         .then(res => {
-            console.log(res.data)
+            console.log("getExercises", res)
             this.setState({
                 exercises: res.data
             })
@@ -55,7 +53,6 @@ export class Workouts extends Component {
     }
 
     getTargetArea = value => {
-        let userData =JSON.parse(localStorage.getItem('userdata'))
         // axios.get(`${url}/exercises/${userData.user_id}/targets/`, { headers:{Authorization: userData.token}})
         axios.get(`${url}/exercises/${1}/targetarea/`)
         .then(res => {
@@ -68,7 +65,6 @@ export class Workouts extends Component {
         })
     }
     getSets = value => {
-        let userData =JSON.parse(localStorage.getItem('userdata'))
         // axios.get(`${url}/exercises/${userData.user_id}/sets/`, { headers:{Authorization: userData.token}})
         axios.get(`${url}/exercises/${1}/sets/`)
         .then(res => {
@@ -87,12 +83,16 @@ render(){
     return (
         <div>
             <h2>Workouts</h2>
+            <PostWorkouts/>
             {workouts.map(workout => {
-                return <div className="workoutContainer" key={workout.id} onClick={this.getExercises}>
-                    <h2>{workout.name}</h2>
-                    <h3>{workout.date}</h3>
-                </div>
+            return <div className="workout-container" key={workout.id}>
+                        <h4>{workout.date}</h4>
+                        <h4>{workout.name}</h4>
+                        <button onClick={this.getExercises}>Expand</button>
+                    </div>
+                
             })}
+            
             <div className="exercises">
                 <Exercises 
                     exercises ={this.state.exercises}

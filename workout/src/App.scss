@@ -13,6 +13,10 @@ h2 {
   padding-bottom: 10px;
 }
 
+h3 {
+  font-size: 2.9rem;
+}
+
 h4 {
   font-size: 2.5rem;
   padding-bottom: 10px;
@@ -141,4 +145,76 @@ p {
       transition: 1s;
     }
   }
+}
+//Workout styling
+.workout-container {
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border: 1px solid black;
+  width: 70%;
+
+  h4 {
+    padding: 2rem;
+    margin: 1rem;
+    width: 30%;
+  }
+  
+  button {
+    border: 2px solid black;
+    height: 5.5rem;
+    margin-left: 15rem;
+    margin-right: 2rem;
+    width: 20%;
+    background: cadetblue;
+    color: white;
+    font-size: 1.8rem;
+  }
+}
+
+// PostWorkouts styling
+
+.postworkouts-wrapper {
+
+  input {
+    border: 1px solid black;
+    font-size: 1.8rem;
+    width:13%;
+    padding: 2rem;
+  }
+
+  button {
+    border: 1px solid black;
+    font-size: 1.8rem;
+    padding: 2rem;
+    width: 13%;
+    background: cadetblue;
+    color: white;
+  }
+
+}
+
+//PostExercises styling
+
+.postexercise-wrapper {
+
+  input {
+    border: 1px solid black;
+    font-size: 1.8rem;
+    width:13%;
+    padding: 2rem;
+  }
+
+  button {
+    border: 1px solid black;
+    font-size: 1.8rem;
+    padding: 2rem;
+    width: 13%;
+    background: cadetblue;
+    color: white;
+  }
+
 }
