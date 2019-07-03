@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import Exercises from "./Exercises"
 import PostWorkouts from './PostWorkouts';
+import Exercises from './Exercises';
+import {Link, NavLink} from "react-router-dom"
 
 let url = 'http://localhost:3300'
 let userData =JSON.parse(localStorage.getItem('userdata'))
@@ -24,7 +25,7 @@ export class Workouts extends Component {
     // Make ID dynamic
     getWorkouts = value => {
     //  axios.get(`${url}/users/${userData.user_id}/workouts`, { headers:{Authorization: userData.token}})
-     axios.get(`${url}/users/${1}/workouts`)
+     axios.get(`${url}/users/${userData.user_id}/workouts`)
         .then(res => {
             console.log(res.data)
             this.setState({
@@ -39,7 +40,6 @@ export class Workouts extends Component {
 
     getExercises = event => {
         // axios.get(`${url}/workouts/${1}/exercises`, { headers:{Authorization: userData.token}})
-        event.preventDefault()
         axios.get(`${url}/workouts/${1}/exercises/`)
         .then(res => {
             console.log("getExercises", res)
@@ -54,7 +54,7 @@ export class Workouts extends Component {
 
     getTargetArea = value => {
         // axios.get(`${url}/exercises/${userData.user_id}/targets/`, { headers:{Authorization: userData.token}})
-        axios.get(`${url}/exercises/${1}/targetarea/`)
+        axios.get(`${url}/exercises/${2}/targetarea/`)
         .then(res => {
             this.setState({
                 targetArea: res.data
@@ -78,33 +78,36 @@ export class Workouts extends Component {
     }
 
 render(){
-    let {workouts} = this.state
-    console.log(this.state.targetArea)
+    let {workouts, exercises, targetArea, sets} = this.state
+    console.log("workout",exercises)
     return (
         <div>
             <h2>Workouts</h2>
             <PostWorkouts/>
             {workouts.map(workout => {
+                console.log(exercises)
             return <div className="workout-container" key={workout.id}>
-                        <h4>{workout.date}</h4>
-                        <h4>{workout.name}</h4>
-                        <button onClick={this.getExercises}>Expand</button>
+                        <Link to={`/${userData.user_id}`} className="workouts">
+                            <h4>{workout.date}</h4>
+                            <h4>{workout.name}</h4>
+                        </Link>
                     </div>
-                
             })}
+            <Exercises 
+            exercises = {exercises}
+            targetArea = {targetArea}
+            sets = {sets}
+            getTargetArea = {this.getTargetArea}
+            getSets = {this.getSets}
+            />
             
-            <div className="exercises">
-                <Exercises 
-                    exercises ={this.state.exercises}
-                    targetArea = {this.state.targetArea}
-                    sets = {this.state.sets}
-                    getTargetArea = {this.getTargetArea}
-                    getSets = {this.getSets}
-                />
-            </div>
         </div>
     )
 }}
 
 export default Workouts
 
+
+{/* <div className="exercises">
+    
+</div> */}

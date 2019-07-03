@@ -22,7 +22,7 @@ class App extends React.Component {
 
       <div className="App">
        {/* <Auth/> */}
-       <MainView/>
+        <MainView/>
         <ToastContainer/>
       </div>
     );
