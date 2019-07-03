@@ -19,13 +19,14 @@ class PostTargetAreas extends React.Component {
         })
     }
 
-    postExercises = (event) =>{
-        axios.post(`${url}/exercises/${1}/targetarea`, 
+    postTargetArea = (event) =>{
+        console.log("props", this.props.exercise_id)
+        axios.post(`${url}/exercises/${this.props.exercise_id}/targetarea`, 
         {
         name: this.state.name, 
         })
         .then(res => {
-            console.log(res)
+            console.log(res, this.state.name)
             console.log("SUCCESS")
         }).catch(err => {
             console.error(err)
