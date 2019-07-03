@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Workouts from "../components/Workouts"
-import Exercises from "../components/Exercises"
+import Workouts from "../components/01-workouts/Workouts"
+import Exercises from "../components/02-exercises/Exercises"
 import { Route } from "react-router-dom"
 
 export class MainView extends Component {
