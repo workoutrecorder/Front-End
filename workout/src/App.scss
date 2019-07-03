@@ -218,3 +218,43 @@ p {
   }
 
 }
+
+//post target area styling
+
+.posttargetarea-wrapper {
+  
+  input {
+    border: 1px solid black;
+    font-size: 1.8rem;
+    width:13%;
+    padding: 2rem;
+  }
+
+  button {
+    border: 1px solid black;
+    font-size: 1.8rem;
+    padding: 2rem;
+    width: 13%;
+    background: cadetblue;
+    color: white;
+  }
+}
+
+//Post Sets styling
+.postsets-wrapper {
+  input {
+    border: 1px solid black;
+    font-size: 1.8rem;
+    width:13%;
+    padding: 2rem;
+  }
+
+  button {
+    border: 1px solid black;
+    font-size: 1.8rem;
+    padding: 2rem;
+    width: 13%;
+    background: cadetblue;
+    color: white;
+  }
+}

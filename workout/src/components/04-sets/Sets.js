@@ -6,8 +6,8 @@ export class Sets extends Component {
             <div>
                 {this.props.sets.map(set => {
                     return <div key={set.id}>
-                        <h2>{set.reps}</h2>
-                        <h2>{set.weight}</h2>                        
+                        <h2> Reps: {set.reps}</h2>
+                        <h2>Weight: {set.weight}</h2>                        
                     </div>
                 })}
             </div>

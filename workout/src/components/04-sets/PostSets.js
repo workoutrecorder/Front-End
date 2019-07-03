@@ -20,8 +20,8 @@ class PostSets extends React.Component {
         })
     }
 
-    postExercises = (event) =>{
-        axios.post(`${url}/exercises/${1}/sets`, 
+    postSets = (event) =>{
+        axios.post(`${url}/exercises/${this.props.exercise_id}/sets`, 
         {
         reps: this.state.reps,
         weight: this.state.weight, 
