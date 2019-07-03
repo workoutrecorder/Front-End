@@ -27,7 +27,7 @@ class PostWorkouts extends React.Component {
         if (this.state.name.length < 1 || this.state.date.length < 1){
             toast.error("Make sure to enter a name and a date.")
         } else {
-        axios.post(`${url}/users/${1}/workouts`, 
+        axios.post(`${url}/users/${userData.user_id}/workouts`, 
         {
         name: this.state.name, 
         date: this.state.date
