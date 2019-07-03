@@ -40,7 +40,7 @@ render(){
     let {workouts} = this.state
     console.log(workouts, "JAKE")
     return (
-        <div>
+        <div className ="workouts-wrapper">
             <h2>Workouts</h2>
             <button  onClick = {this.props.signOut}>Logout</button>
             <PostWorkouts/>
