@@ -43,10 +43,11 @@ const authenticate = App => Login =>
 
                 .then( res => {
                     localStorage.setItem("userdata", JSON.stringify(res.data));
+                    toast.success("Login Successful!")
+                    this.props.history.push('/');
                     this.setState({
                         loggedIn: true
                     });
-                    toast.success("Login Successful!")
                 })
                 .catch(err => toast.error("You definitely did something wrong!!!"));
             }
