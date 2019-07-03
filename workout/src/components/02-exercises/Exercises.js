@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PostExercises from './PostExercises'
-import TargetArea from "./TargetArea"
-import Sets from "./Sets"
 import axios from 'axios'
+import TargetArea from "."
+import Sets from "../04-sets/Sets"
 
 let url = 'http://localhost:3300'
 
@@ -37,22 +37,26 @@ export class Exercises extends Component {
         })
     }
 
-    getTargetArea = value => {
+    getTargetArea = event => {
         // axios.get(`${url}/exercises/${userData.user_id}/targets/`, { headers:{Authorization: userData.token}})
-        axios.get(`${url}/exercises/${2}/targetarea/`)
+        let exercise_id = event.currentTarget.attributes.value.value
+        console.log(exercise_id)
+        axios.get(`${url}/exercises/${exercise_id}/targetarea/`)
         .then(res => {
             this.setState({
                 targetArea: res.data
             })
+            this.getSets(exercise_id)
         })
         .catch(err => {
             console.log(err)
         })
+        console.log("I am a function you darned console error")
     }
 
-    getSets = value => {
+    getSets = (event, exercise_id) => {
         // axios.get(`${url}/exercises/${userData.user_id}/sets/`, { headers:{Authorization: userData.token}})
-        axios.get(`${url}/exercises/${1}/sets/`)
+        axios.get(`${url}/exercises/${exercise_id}/sets/`)
         .then(res => {
             this.setState({
                 sets: res.data
@@ -61,6 +65,7 @@ export class Exercises extends Component {
         .catch(err => {
             console.log(err)
         })
+        console.log("I am a function you darned console error")
     }
     
     render() {
@@ -68,12 +73,8 @@ export class Exercises extends Component {
             <div>
                 <PostExercises/>
                 {this.state.exercises.map(exercise => {
-                return <div className="exerciseContainer" key={exercise.id}>
-                            <h2 onClick={() => {
-                                this.props.getSets()
-                                this.props.getTargetArea()
-                            }}>
-                            {exercise.name}</h2>
+                return <div className="exerciseContainer" key={exercise.id} value = {exercise.id}>
+                            <h2 value = {exercise.id} onClick={this.getTargetArea}> {exercise.name} </h2>
                             {/* <TargetArea targetArea = {targetArea}/>
                             <Sets sets = {sets} /> */}
                         </div>

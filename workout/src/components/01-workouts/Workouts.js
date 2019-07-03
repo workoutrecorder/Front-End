@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import PostWorkouts from './PostWorkouts';
-import {Link, NavLink} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 let url = 'http://localhost:3300'
-let userData =JSON.parse(localStorage.getItem('userdata'))
 
 export class Workouts extends Component {
     constructor(){
@@ -21,9 +20,10 @@ export class Workouts extends Component {
     // Make ID dynamic
     getWorkouts = value => {
     //  axios.get(`${url}/users/${userData.user_id}/workouts`, { headers:{Authorization: userData.token}})
+    let userData =JSON.parse(localStorage.getItem('userdata'))
      axios.get(`${url}/users/${userData.user_id}/workouts`)
         .then(res => {
-            console.log(res.data)
+            console.log(res)
             this.setState({
                 workouts: res.data
             })
@@ -37,11 +37,12 @@ export class Workouts extends Component {
     
 
 render(){
-    let {workouts, exercises, targetArea, sets} = this.state
-    console.log("workout",exercises)
+    let {workouts} = this.state
+    console.log(workouts, "JAKE")
     return (
         <div>
             <h2>Workouts</h2>
+            <button  onClick = {this.props.signOut}>Logout</button>
             <PostWorkouts/>
             {workouts.map(workout => {
             return <div className="workout-container" key={workout.id}>

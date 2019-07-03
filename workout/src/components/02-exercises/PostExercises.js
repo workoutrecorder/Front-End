@@ -21,8 +21,8 @@ class PostExercises extends React.Component {
     }
 
     postExercises = (event) =>{
-        // event.preventDefault()
-        axios.post(`${url}/workouts/${1}/exercises`, 
+        let workout_id = window.location.pathname.split("/")[1]
+        axios.post(`${url}/workouts/${workout_id}/exercises`, 
         {
         name: this.state.name, 
         })
