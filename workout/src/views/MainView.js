@@ -4,11 +4,14 @@ import Exercises from "../components/Exercises"
 import { Route } from "react-router-dom"
 
 export class MainView extends Component {
-    
+      constructor(props){
+        super(props);
+    }
+
     render() {
         return (
             <div>
-                <Route path="/" exact render={(...props) => <Workouts {...props} />}/> 
+                <Route path="/" exact render={(...props) => <Workouts signOut = {this.props.signOut} {...props} />}/> 
                 <Route path="/:id" exact render={(...props) => <Exercises {...props} />}/> 
             </div>
         )

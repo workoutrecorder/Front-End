@@ -16,14 +16,13 @@ const authenticate = App => Login =>
         }
         
         componentDidMount(){
-            
-            // if(localStorage.getItem('userdata')){
-            //     const userdata = JSON.parse(localStorage.getItem('userdata'));
-            //     axios.post(`${url}/auth/checkauth`, {token: userdata.token}).then(res => {
-            //         console.log(res.data)
-            //         res.data ? this.setState({ loggedIn: true}) : localStorage.clear();
-            //     }).catch(error => console.log(error));
-            // }
+            if(localStorage.getItem('userdata')){
+                const userdata = JSON.parse(localStorage.getItem('userdata'));
+                axios.post(`${url}/auth/checkauth`, {token: userdata.token}).then(res => {
+                    console.log(res.data)
+                    res.data ? this.setState({ loggedIn: true}) : localStorage.clear();
+                }).catch(error => console.log(error));
+            }
         }
 
         handleChanges = event => {
@@ -46,6 +45,8 @@ const authenticate = App => Login =>
                     toast.success("Login Successful!")
                     this.props.history.push('/');
                     this.setState({
+                        username: "",
+                        password: "",
                         loggedIn: true
                     });
                 })
@@ -56,6 +57,7 @@ const authenticate = App => Login =>
 
         signOut = event => {
             event.preventDefault();
+            console.log("Click")
             window.localStorage.clear();
             this.setState({
                 loggedIn: false
