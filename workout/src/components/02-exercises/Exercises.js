@@ -73,7 +73,7 @@ export class Exercises extends Component {
     render() {
         console.log(this.state.targetArea, "I am target")
         return (
-            <div>
+            <div className ="exercise-wrapper">
                 <PostExercises/>
                 {this.state.exercises.map(exercise => {
                 return <div className="exerciseContainer" key={exercise.id} value = {exercise.id}>

@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 
 
 let url = 'http://localhost:3300'
-let userData =JSON.parse(localStorage.getItem('userdata'))
 
 class PostWorkouts extends React.Component {
     constructor(props) {
@@ -24,6 +23,7 @@ class PostWorkouts extends React.Component {
 
     postWorkouts = (event) =>{
         event.preventDefault()
+        let userData =JSON.parse(localStorage.getItem('userdata'))
         if (this.state.name.length < 1 || this.state.date.length < 1){
             toast.error("Make sure to enter a name and a date.")
         } else {

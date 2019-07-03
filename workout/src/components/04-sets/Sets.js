@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class Sets extends Component {
     render() {
         return (
-            <div>
+            <div className ="sets-wrapper">
                 {this.props.sets.map(set => {
                     return <div key={set.id}>
                         <h2> Reps: {set.reps}</h2>
