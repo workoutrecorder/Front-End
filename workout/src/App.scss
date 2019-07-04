@@ -199,13 +199,14 @@ p {
       font-size: 1.8rem;
       width:13%;
       padding: 2rem;
+      
     }
     button {
       border: 1px solid black;
       font-size: 1.8rem;
       padding: 2rem;
       width: 13%;
-      background: cadetblue;
+      background: tomato;
       color: white;
     }
   }
@@ -215,9 +216,14 @@ p {
 .exercise-wrapper{
   min-height: 100vh;
   background-color: rgb(53, 53, 53);
+  h1{
+    margin:0;
+    padding-top: 2rem;
+    color:white;
+  }
   .exerciseContainer{
 
-    h2{
+    h4{
       color:white;
     }
   }
@@ -225,33 +231,41 @@ p {
 
 //PostExercises styling
 .postexercise-wrapper{
+  padding-top:2rem;
 
   form{
-    
+    display:flex;
+    justify-content: center;
+    height:5rem;
+    align-items: flex-end; 
     input {
-      margin-top:2rem;
       border: 1px solid black;
       font-size: 1.8rem;
       width:13%;
-      padding: 2rem;
+      height:100%;
+      padding-left: 2rem;
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
     }
     button {
       border: 1px solid black;
       font-size: 1.8rem;
-      padding: 2rem;
       width: 13%;
-      background: rgb(181, 253, 255);
-      color: black;
+      height:100%;
+      background: tomato;
+      color: white;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
     }
   }
 }
 
 //Target area styling
 .targetarea-wrapper{
-
+  
   .targetarea-container{
 
-    h2{
+    h4{
 
     }
   }
@@ -260,23 +274,31 @@ p {
 //Post target area styling
 
 .posttargetarea-wrapper {
-  
+  margin:1rem;
   form{
-    
+    display:flex;
+    justify-content: center;
+    height:5rem;
+    align-items: flex-end; 
     input {
+      margin-top:2rem;
       border: 1px solid black;
       font-size: 1.8rem;
       width:13%;
-      padding: 2rem;
+      height:100%;
+      padding-left: 2rem;
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
     }
-  
     button {
       border: 1px solid black;
       font-size: 1.8rem;
-      padding: 2rem;
       width: 13%;
-      background: rgb(181, 253, 255);
-      color: black;
+      height:100%;
+      background: tomato;
+      color: white;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
     }
   }
 }
@@ -286,7 +308,7 @@ p {
 
   .sets-container{
 
-    h2{
+    h4{
       
     }
   }
@@ -294,19 +316,33 @@ p {
 
 //Post Sets styling
 .postsets-wrapper {
-  input {
-    border: 1px solid black;
-    font-size: 1.8rem;
-    width:13%;
-    padding: 2rem;
-  }
 
-  button {
-    border: 1px solid black;
-    font-size: 1.8rem;
-    padding: 2rem;
-    width: 13%;
-    background: rgb(181, 253, 255);
-    color: black;
+  form{
+    display:flex;
+    justify-content: center;
+    height:5rem;
+    align-items: flex-end; 
+    input {
+      margin-top:2rem;
+      border: 1px solid black;
+      font-size: 1.8rem;
+      width:13%;
+      height:100%;
+      padding-left: 2rem;
+        &:nth-child(1){
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+      }
+    }
+    button {
+      border: 1px solid black;
+      font-size: 1.8rem;
+      width: 13%;
+      height:100%;
+      background: tomato;
+      color: white;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
+    }
   }
 }

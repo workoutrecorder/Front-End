@@ -6,8 +6,8 @@ render() {
         <div className ="sets-wrapper">
             {this.props.sets.map(set => {
                 return <div key={set.id} className="sets-container">
-                    <h2> Reps: {set.reps}</h2>
-                    <h2>Weight: {set.weight}</h2>                        
+                    <h4> Reps: {set.reps}</h4>
+                    <h4>Weight: {set.weight}</h4>    
                 </div>
             })}
         </div>

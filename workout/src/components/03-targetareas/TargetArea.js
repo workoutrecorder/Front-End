@@ -8,7 +8,7 @@ export class TargetArea extends Component {
             <div className ="targetarea-wrapper">
                 {this.props.targetArea.map(target => {
                 return <div key={target.id} className="targetarea-container">
-                    <h2> TargetArea: {target.name}</h2>
+                    <h4> TargetArea: {target.name}</h4>
                 </div>
                 })}
                 <Sets sets = {this.props.sets}/>
