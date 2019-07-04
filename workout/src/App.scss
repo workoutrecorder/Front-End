@@ -147,6 +147,7 @@ p {
 .workouts-wrapper{
   min-height: 100vh;
   background-color:rgb(53, 53, 53);
+  
   .innerworkout-wrapper{
     display: flex;
     justify-content: center;
@@ -216,11 +217,29 @@ p {
 .exercise-wrapper{
   min-height: 100vh;
   background-color: rgb(53, 53, 53);
-  h1{
-    margin:0;
-    padding-top: 2rem;
-    color:white;
+
+  .innerexercise-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:5rem;
+
+    h2{
+      margin:0;
+      padding:2rem;
+      font-size: 4rem;
+      color:white;
+    }
+    
+    button{
+      height: 2.5rem;
+      width: 6rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+    }
   }
+
+
   .exerciseContainer{
 
     h4{
@@ -345,4 +364,15 @@ p {
       border-top-right-radius: 10px;
     }
   }
+}
+
+.hidden {
+display: fixed;
+overflow: hidden;
+height: 0
+}
+
+.revealed {
+  transition: 2s;
+  height: 100px;
 }

@@ -4,6 +4,7 @@ import axios from 'axios'
 import PostTargetAreas from "../03-targetareas/PostTargetAreas"
 import TargetArea from "../03-targetareas/TargetArea"
 import PostSets from "../04-sets/PostSets"
+import { Link } from 'react-router-dom'
 
 let url = 'http://localhost:3300'
 
@@ -14,7 +15,8 @@ export class Exercises extends Component {
         this.state = {
             exercises:[],
             targetArea: [],
-            sets: []
+            sets: [],
+            reveal: false
         }
     }
     componentDidMount = () => {
@@ -53,7 +55,7 @@ export class Exercises extends Component {
         .catch(err => {
             console.log(err)
         })
-        console.log("I am a function you darned console error")
+
     }
 
     getSets = (exercise_id) => {
@@ -62,26 +64,42 @@ export class Exercises extends Component {
         .then(res => {
             this.setState({
                 sets: res.data
+            }, ()=> {
+                this.setState({
+                    reveal: true
+                })
             })
         })
         .catch(err => {
             console.log(err)
         })
-        console.log("I am a function you darned console error")
+    }
+
+    backUp = event => {
+        
     }
     
     render() {
         console.log(this.state.targetArea, "I am target")
         return (
             <div className ="exercise-wrapper">
-                <h1>Exercises</h1>
+
+                <div className = "innerexercise-wrapper">
+                    <h2>Exercises</h2>
+                    <Link to="/">
+                        <button onClick = {this.backUp}>Back</button>
+                    </Link>
+                </div>
+
                 <PostExercises/>
                 {this.state.exercises.map(exercise => {
                 return <div className="exerciseContainer" key={exercise.id} value = {exercise.id}>
                             <h4 value = {exercise.id} onClick={this.getTargetArea}> Exercise: {exercise.name} </h4>
-                            <PostTargetAreas exercise_id = {exercise.id}/>
-                            <PostSets exercise_id = {exercise.id}/>
-                            <TargetArea targetArea = {this.state.targetArea} sets = {this.state.sets}/>
+                            <div className = {this.state.reveal === true ? 'revealed': 'hidden'}>
+                                <PostTargetAreas exercise_id = {exercise.id}/>
+                                <PostSets exercise_id = {exercise.id}/>
+                                <TargetArea targetArea = {this.state.targetArea} sets = {this.state.sets}/>
+                            </div>
                         </div>
                 })}
             </div>
