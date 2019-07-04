@@ -40,6 +40,27 @@ export class Exercises extends Component {
         })
     }
 
+    deleteExercises = (event, id) => {
+        // let workout_id = event.currentTarget.attributes.value.value
+        axios
+          .delete(`${url}/exercises/${id}`)
+          .then(res => {
+           console.log("exercise deleted");
+           let exerciseList = this.state.exercises.filter(exercise => {
+           return exercise.id !== id
+           })
+           
+           this.setState({
+            exercises: exerciseList
+           })
+        //    toast.success('Workout Deleted!')
+            })
+          .catch(err => {
+            console.log(err);
+          });
+      };
+    
+
     getTargetArea = event => {
         // axios.get(`${url}/exercises/${userData.user_id}/targets/`, { headers:{Authorization: userData.token}})
         event.preventDefault()
@@ -75,9 +96,6 @@ export class Exercises extends Component {
         })
     }
 
-    backUp = event => {
-        
-    }
     
     render() {
         console.log(this.state.targetArea, "I am target")
@@ -94,6 +112,7 @@ export class Exercises extends Component {
                 <PostExercises/>
                 {this.state.exercises.map(exercise => {
                 return <div className="exerciseContainer" key={exercise.id} value = {exercise.id}>
+                            <button onClick={e => this.deleteExercises(e, exercise.id)}>Del</button>
                             <h4 value = {exercise.id} onClick={this.getTargetArea}> Exercise: {exercise.name} </h4>
                             <div className = {this.state.reveal === true ? 'revealed': 'hidden'}>
                                 <PostTargetAreas exercise_id = {exercise.id}/>
