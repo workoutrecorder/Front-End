@@ -41,8 +41,10 @@ render(){
     console.log(workouts, "JAKE")
     return (
         <div className ="workouts-wrapper">
-            <h2>Workouts</h2>
-            <button  onClick = {this.props.signOut}>Logout</button>
+            <div className ="innerworkout-wrapper">
+                <h2>Workouts</h2>
+                <button  onClick = {this.props.signOut}>Logout</button>
+            </div>
             <PostWorkouts/>
             {workouts.map(workout => {
             return <div className="workout-container" key={workout.id}>

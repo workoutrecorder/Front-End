@@ -38,7 +38,7 @@ class PostExercises extends React.Component {
         return ( 
         <div className = "postexercise-wrapper">
             <form>
-                <input placeholder ="name" name = "name" value = {this.state.name} onChange = {this.handleChanges} />
+                <input placeholder ="Name" name = "name" value = {this.state.name} onChange = {this.handleChanges} />
                 <button onClick = {this.postExercises}> Post Exercise </button>
             </form>
         </div> 
