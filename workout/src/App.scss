@@ -30,6 +30,7 @@ p {
 .App {
   text-align: center;
   margin: 0 auto;
+  height:100%;
 }
 
 //Login Nav
@@ -223,7 +224,7 @@ p {
     justify-content: center;
     align-items: center;
     margin-left:5rem;
-
+    
     h2{
       margin:0;
       padding:2rem;
@@ -241,7 +242,7 @@ p {
 
 
   .exerciseContainer{
-
+    
     h4{
       color:white;
     }
@@ -251,7 +252,7 @@ p {
 //PostExercises styling
 .postexercise-wrapper{
   padding-top:2rem;
-
+  
   form{
     display:flex;
     justify-content: center;
@@ -299,7 +300,7 @@ p {
     justify-content: center;
     height:5rem;
     align-items: flex-end; 
-    input {
+    select{
       margin-top:2rem;
       border: 1px solid black;
       font-size: 1.8rem;
@@ -308,6 +309,7 @@ p {
       padding-left: 2rem;
       border-bottom-left-radius: 10px;
       border-top-left-radius: 10px;
+
     }
     button {
       border: 1px solid black;
@@ -318,6 +320,9 @@ p {
       color: white;
       border-bottom-right-radius: 10px;
       border-top-right-radius: 10px;
+      &:focus {
+        outline: none;
+    }
     }
   }
 }
@@ -369,7 +374,8 @@ p {
 .hidden {
 display: fixed;
 overflow: hidden;
-height: 0
+height: 0;
+
 }
 
 .revealed {
