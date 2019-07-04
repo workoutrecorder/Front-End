@@ -34,6 +34,25 @@ export class Workouts extends Component {
         })
     }
 
+    deleteWorkouts = (event, id) => {
+        // let workout_id = event.currentTarget.attributes.value.value
+        axios
+          .delete(`${url}/workouts/${id}`)
+          .then(res => {
+           console.log("event deleted");
+           let workoutList = this.state.workouts.filter(work => {
+           return work.id !== id
+           })
+           
+           this.setState({
+            workouts: workoutList
+           })
+        //    toast.success('Event Deleted!')
+            })
+          .catch(err => {
+            console.log(err);
+          });
+      };
     
 
 render(){
@@ -47,7 +66,8 @@ render(){
             </div>
             <PostWorkouts/>
             {workouts.map(workout => {
-            return <div className="workout-container" key={workout.id}>
+            return <div className="workout-container" key={workout.id} >
+                        <button onClick={e => this.deleteWorkouts(e, workout.id)}>Del</button>
                         <Link to={`/${workout.id}`} className="workouts">
                             <h4>{workout.date}</h4>
                             <h4>{workout.name}</h4>
