@@ -39,7 +39,7 @@ export class Workouts extends Component {
         axios
           .delete(`${url}/workouts/${id}`)
           .then(res => {
-           console.log("event deleted");
+           console.log("workout deleted");
            let workoutList = this.state.workouts.filter(work => {
            return work.id !== id
            })
@@ -47,7 +47,7 @@ export class Workouts extends Component {
            this.setState({
             workouts: workoutList
            })
-        //    toast.success('Event Deleted!')
+        //    toast.success('Workout Deleted!')
             })
           .catch(err => {
             console.log(err);

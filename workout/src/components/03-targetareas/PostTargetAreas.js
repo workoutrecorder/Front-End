@@ -34,10 +34,11 @@ class PostTargetAreas extends React.Component {
     }
 
     render() { 
+        console.group(this.state.name)
         return ( 
         <div className = "posttargetarea-wrapper">
             <form>
-                <select placeholder ="Name" name = "name" value={this.state.name} onChange={this.handleChanges}>
+                <select value={this.state.name} onChange={this.handleChanges}>
                     <option value="Biceps">Biceps</option>
                     <option value="Triceps">Triceps</option>
                     <option value="Quads">Quads</option>
