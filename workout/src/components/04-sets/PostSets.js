@@ -38,8 +38,8 @@ class PostSets extends React.Component {
         return ( 
         <div className = "postsets-wrapper">
             <form>
-                <input placeholder ="reps" name = "reps" value = {this.state.reps} onChange = {this.handleChanges} />
-                <input placeholder ="weight" name = "weight" value = {this.state.weight} onChange = {this.handleChanges} />
+                <input placeholder ="Reps" name = "reps" value = {this.state.reps} onChange = {this.handleChanges} />
+                <input placeholder ="Weight" name = "weight" value = {this.state.weight} onChange = {this.handleChanges} />
                 <button onClick = {this.postSets}> Post Sets </button>
             </form>
         </div> 

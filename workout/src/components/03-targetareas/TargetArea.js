@@ -7,7 +7,7 @@ export class TargetArea extends Component {
         return (
             <div className ="targetarea-wrapper">
                 {this.props.targetArea.map(target => {
-                return <div key={target.id}>
+                return <div key={target.id} className="targetarea-container">
                     <h2> TargetArea: {target.name}</h2>
                 </div>
                 })}

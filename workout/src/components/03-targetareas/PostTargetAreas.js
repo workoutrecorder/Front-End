@@ -37,7 +37,7 @@ class PostTargetAreas extends React.Component {
         return ( 
         <div className = "posttargetarea-wrapper">
             <form>
-                <input placeholder ="name" name = "name" value = {this.state.name} onChange = {this.handleChanges} />
+                <input placeholder ="Name" name = "name" value = {this.state.name} onChange = {this.handleChanges} />
                 <button onClick = {this.postTargetArea}> Post Target Area </button>
             </form>
         </div> 
