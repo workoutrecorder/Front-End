@@ -62,10 +62,9 @@ export class Exercises extends Component {
       };
     
 
-    getTargetArea = event => {
+    getTargetArea = (exercise_id) => {
         // axios.get(`${url}/exercises/${userData.user_id}/targets/`, { headers:{Authorization: userData.token}})
-        event.preventDefault()
-        let exercise_id = event.currentTarget.attributes.value.value
+        // let exercise_id = event.currentTarget.attributes.value.value
     
         axios.get(`${url}/exercises/${exercise_id}/targetarea/`)
         .then(res => {
@@ -99,13 +98,16 @@ export class Exercises extends Component {
 
     addIdToReveal = (event) => {
         console.log("I AM CURRENT TARGET", event.currentTarget.attributes.value.value)
+        let exercise_id = event.currentTarget.attributes.value.value
         if (this.state.revealId !== event.currentTarget.attributes.value.value){
         this.setState({
-            revealId: event.currentTarget.attributes.value.value
-        })
+            revealId: exercise_id
+        }, () => {this.getTargetArea(exercise_id)})
         } else {
         this.setState({
-            revealId: ""
+            revealId: "",
+            targetArea:[],
+            sets:[]
         })
         }
     }
@@ -130,7 +132,7 @@ export class Exercises extends Component {
                                  key={exercise.id} 
                                  value = {exercise.id}
                                  >
-                                <h4 value = {exercise.id} onClick={this.getTargetArea}> Exercise: {exercise.name} </h4>
+                                <h4 value = {exercise.id}> Exercise: {exercise.name} </h4>
                                 <i className="fas fa-dumpster" onClick={e => this.deleteExercises(e, exercise.id)}/>
                             </div>
 

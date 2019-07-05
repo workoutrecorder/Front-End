@@ -29,8 +29,6 @@ export class Sets extends Component {
           });
       };
 
-      
-
 render() {
     return (
         <div className ="sets-wrapper">
