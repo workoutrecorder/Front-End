@@ -167,25 +167,38 @@ p {
       border-radius: 10px;
     }
   }
+  
   .workout-container {
-    margin: 1rem auto 1rem;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid white;
-    width: 70%;
+      margin: 1rem auto 1rem;
+      display: flex;
+      border: 1px solid tomato;
+      flex-direction: row;
+      width: 70%;
+
     .workouts{
       display: flex;
       flex-direction: row;
-      text-decoration: none;
+      justify-content: space-around;
       color:white;
+      text-decoration: none;
+      width: 97%
     }
+
+    i {
+      font-size: 2rem;
+      color: white;
+      margin-right: 1rem;
+      margin-top: 1rem;
+    }
+
     h4 {
       padding: 2rem;
       margin: 1rem 0;
       width: 50%;
       &:nth-child(1){
-        border-right:1px solid white;
+        border-right:1px solid tomato;
       }
+    
     }
   }
 }
@@ -242,6 +255,17 @@ p {
 
 
   .exerciseContainer{
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 3px solid tomato;
+    width: 50%;
+
+    i {
+      color: white;
+      font-size: 2rem;
+    }
     
     h4{
       color:white;
@@ -374,11 +398,14 @@ p {
 .hidden {
 display: fixed;
 overflow: hidden;
-height: 0;
+transition: 500ms;
+max-height: 0;
 
 }
 
 .revealed {
-  transition: 2s;
-  height: 100px;
+  margin: 0 auto;
+  transition: 500ms;
+  padding: 1rem;
+  max-height: 100vh
 }

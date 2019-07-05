@@ -34,7 +34,6 @@ class PostTargetAreas extends React.Component {
     }
 
     render() { 
-        console.group(this.state.name)
         return ( 
         <div className = "posttargetarea-wrapper">
             <form>

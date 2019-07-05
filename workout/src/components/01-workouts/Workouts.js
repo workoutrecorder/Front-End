@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import PostWorkouts from './PostWorkouts';
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom"
 
 let url = 'http://localhost:3300'
@@ -47,7 +48,7 @@ export class Workouts extends Component {
            this.setState({
             workouts: workoutList
            })
-        //    toast.success('Workout Deleted!')
+           toast.success('Workout Deleted!')
             })
           .catch(err => {
             console.log(err);
@@ -67,11 +68,11 @@ render(){
             <PostWorkouts/>
             {workouts.map(workout => {
             return <div className="workout-container" key={workout.id} >
-                        <button onClick={e => this.deleteWorkouts(e, workout.id)}>Del</button>
                         <Link to={`/${workout.id}`} className="workouts">
                             <h4>{workout.date}</h4>
                             <h4>{workout.name}</h4>
                         </Link>
+                            <i className="fas fa-dumpster" onClick={e => this.deleteWorkouts(e, workout.id)}/>
                     </div>
             })}
             
