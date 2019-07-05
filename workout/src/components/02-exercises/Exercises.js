@@ -16,7 +16,8 @@ export class Exercises extends Component {
             exercises:[],
             targetArea: [],
             sets: [],
-            reveal: false
+            reveal: false,
+            revealId: ''
         }
     }
     componentDidMount = () => {
@@ -65,7 +66,7 @@ export class Exercises extends Component {
         // axios.get(`${url}/exercises/${userData.user_id}/targets/`, { headers:{Authorization: userData.token}})
         event.preventDefault()
         let exercise_id = event.currentTarget.attributes.value.value
-        console.log("target", exercise_id)
+    
         axios.get(`${url}/exercises/${exercise_id}/targetarea/`)
         .then(res => {
             this.setState({
@@ -96,9 +97,21 @@ export class Exercises extends Component {
         })
     }
 
+    addIdToReveal = (event) => {
+        console.log("I AM CURRENT TARGET", event.currentTarget.attributes.value.value)
+        if (this.state.revealId !== event.currentTarget.attributes.value.value){
+        this.setState({
+            revealId: event.currentTarget.attributes.value.value
+        })
+        } else {
+        this.setState({
+            revealId: ""
+        })
+        }
+    }
+
     
     render() {
-        console.log(this.state.targetArea, "I am target")
         return (
             <div className ="exercise-wrapper">
 
@@ -111,10 +124,17 @@ export class Exercises extends Component {
 
                 <PostExercises/>
                 {this.state.exercises.map(exercise => {
-                return <div className="exerciseContainer" key={exercise.id} value = {exercise.id}>
-                            <button onClick={e => this.deleteExercises(e, exercise.id)}>Del</button>
-                            <h4 value = {exercise.id} onClick={this.getTargetArea}> Exercise: {exercise.name} </h4>
-                            <div className = {this.state.reveal === true ? 'revealed': 'hidden'}>
+                return <div className = "reveal-container">
+                            <div onClick = {this.addIdToReveal} 
+                                 className="exerciseContainer" 
+                                 key={exercise.id} 
+                                 value = {exercise.id}
+                                 >
+                                <h4 value = {exercise.id} onClick={this.getTargetArea}> Exercise: {exercise.name} </h4>
+                                <i className="fas fa-dumpster" onClick={e => this.deleteExercises(e, exercise.id)}/>
+                            </div>
+
+                            <div className = {this.state.reveal === true && exercise.id == this.state.revealId ? 'revealed': 'hidden'}>
                                 <PostTargetAreas exercise_id = {exercise.id}/>
                                 <PostSets exercise_id = {exercise.id}/>
                                 <TargetArea targetArea = {this.state.targetArea} sets = {this.state.sets}/>
