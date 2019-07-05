@@ -37,7 +37,7 @@ class PostTargetAreas extends React.Component {
         return ( 
         <div className = "posttargetarea-wrapper">
             <form>
-                <select value={this.state.name} onChange={this.handleChanges}>
+                <select name ="name" value={this.state.name} onChange={this.handleChanges}>
                     <option value="Biceps">Biceps</option>
                     <option value="Triceps">Triceps</option>
                     <option value="Quads">Quads</option>

@@ -28,14 +28,19 @@ export class Sets extends Component {
             console.log(err);
           });
       };
+
+      
+
 render() {
     return (
         <div className ="sets-wrapper">
             {this.props.sets.map(set => {
+                let reps = <h4>Reps: {set.reps}</h4>
+                let weight = <h4>Weight: {set.weight}</h4>
                 return <div key={set.id} className="sets-container">
                     <button onClick={e => this.deleteSets(e, set.id)}>Del</button>
-                    <h4> Reps: {set.reps}</h4>
-                    <h4>Weight: {set.weight}</h4>    
+                    {set.reps != '' ? reps : ''}
+                    {set.weight != '' ? weight : ''}    
                 </div>
             })}
         </div>
