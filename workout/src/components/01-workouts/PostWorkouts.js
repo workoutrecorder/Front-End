@@ -46,8 +46,8 @@ class PostWorkouts extends React.Component {
         return ( 
         <div className = "postworkouts-wrapper">
             <form>
-                <input placeholder ="name" name = "name" value = {this.state.name} onChange = {this.handleChanges} />
-                <input placeholder ="date" name = "date" value = {this.state.date} onChange = {this.handleChanges}/>
+                <input placeholder ="Name" name = "name" value = {this.state.name} onChange = {this.handleChanges} />
+                <input placeholder ="yyyy-mm-dd" name = "date" value = {this.state.date} onChange = {this.handleChanges}/>
                 <button onClick = {this.postWorkouts}> Post </button>
             </form>
         </div> 

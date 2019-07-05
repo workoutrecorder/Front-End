@@ -181,7 +181,8 @@ p {
       justify-content: space-around;
       color:white;
       text-decoration: none;
-      width: 97%
+      width: 97%;
+      margin-left: 2.5rem;
     }
 
     i {
@@ -250,6 +251,7 @@ p {
       width: 6rem;
       font-size: 1.2rem;
       border-radius: 10px;
+      cursor: pointer;
     }
   }
 
@@ -261,7 +263,7 @@ p {
     align-items: center;
     border: 3px solid tomato;
     width: 50%;
-
+    cursor: pointer;
     i {
       color: white;
       font-size: 2rem;
@@ -300,6 +302,7 @@ p {
       color: white;
       border-bottom-right-radius: 10px;
       border-top-right-radius: 10px;
+      cursor: pointer;
     }
   }
 }
@@ -310,7 +313,7 @@ p {
   .targetarea-container{
 
     h4{
-
+      color:white;
     }
   }
 }
@@ -333,7 +336,7 @@ p {
       padding-left: 2rem;
       border-bottom-left-radius: 10px;
       border-top-left-radius: 10px;
-
+      cursor: pointer;
     }
     button {
       border: 1px solid black;
@@ -344,6 +347,7 @@ p {
       color: white;
       border-bottom-right-radius: 10px;
       border-top-right-radius: 10px;
+      cursor: pointer;
       &:focus {
         outline: none;
     }
@@ -357,7 +361,7 @@ p {
   .sets-container{
 
     h4{
-      
+      color:white;
     }
   }
 }
@@ -391,6 +395,7 @@ p {
       color: white;
       border-bottom-right-radius: 10px;
       border-top-right-radius: 10px;
+      cursor: pointer;
     }
   }
 }
@@ -407,5 +412,4 @@ max-height: 0;
   margin: 0 auto;
   transition: 500ms;
   padding: 1rem;
-  max-height: 100vh
 }
