@@ -34,9 +34,10 @@ export class TargetArea extends Component {
         return (
             <div className ="targetarea-wrapper">
                 {this.props.targetArea.map(target => {
+                    let targets = <h4> TargetArea: {target.name}</h4>
                 return <div key={target.id} className="targetarea-container">
                     <button onClick={e => this.deleteTargetarea(e, target.id)}>Del</button>
-                    <h4> TargetArea: {target.name}</h4>
+                    {target.name !== '' ? targets : ''}
                 </div>
                 })}
                 <Sets sets = {this.props.sets}/>
