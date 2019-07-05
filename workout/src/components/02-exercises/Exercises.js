@@ -61,7 +61,6 @@ export class Exercises extends Component {
           });
       };
     
-
     getTargetArea = (exercise_id) => {
         // axios.get(`${url}/exercises/${userData.user_id}/targets/`, { headers:{Authorization: userData.token}})
         // let exercise_id = event.currentTarget.attributes.value.value

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { toast } from "react-toastify";
 
 
 let url = 'http://localhost:3300'
@@ -20,7 +21,10 @@ class PostTargetAreas extends React.Component {
     }
 
     postTargetArea = (event) =>{
-        console.log("props", this.props.exercise_id)
+        if (this.state.name.length === 0){
+            event.preventDefault()
+            toast.error("Select a target area.")
+        } else {
         axios.post(`${url}/exercises/${this.props.exercise_id}/targetarea`, 
         {
         name: this.state.name, 
@@ -31,6 +35,7 @@ class PostTargetAreas extends React.Component {
         }).catch(err => {
             console.error(err)
         })
+        }
     }
 
     render() { 
@@ -38,6 +43,7 @@ class PostTargetAreas extends React.Component {
         <div className = "posttargetarea-wrapper">
             <form>
                 <select name ="name" value={this.state.name} onChange={this.handleChanges}>
+                    <option value ="" disabled hidden>Select Target...</option>
                     <option value="Biceps">Biceps</option>
                     <option value="Triceps">Triceps</option>
                     <option value="Quads">Quads</option>

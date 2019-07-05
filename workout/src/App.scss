@@ -38,22 +38,20 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid black;
-  background: white;
   height: 10rem;
 
   a {
     padding: 0 2rem 0 2rem;
     margin: 0 2rem 0 2rem;
-    font-size: 2rem;
+    font-size: 2.2rem;
     text-decoration: none;
-    color: black;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
+    color: white;
+    border-left: 3px solid rgb(53, 53, 53);
+    border-right: 3px solid rgb(53, 53, 53);
 
     &:hover {
-      border-left: 1px solid black;
-      border-right: 1px solid black;
+      border-left: 3px solid tomato;
+      border-right: 3px solid tomato;
     }
   }
 }
@@ -63,13 +61,13 @@ p {
 .login-wrapper {
   margin: 5rem auto;
   padding: 5rem;
-  background: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 40%;
-  box-shadow: 1px 1px 5px black;
-  background-image: linear-gradient(to right,#6d6b6b, #a8a5a5, #f3f3f3 );
+  box-shadow: 5px 5px 10px black;
+  border: 1px ridge tomato;
+  color: white;
 
   i {
     font-size: 1.4rem;
@@ -91,12 +89,12 @@ p {
     margin-left: 2.1rem;
     font-size: 1.8rem;
     border: 1px solid black;
-    color:white;
-    background: rgb(134, 181, 228);
+    color: white;
+    background: tomato;
     transition: 1s;
 
     &:hover {
-      background: rgb(32, 173, 173);
+      background: #FF7F50;
       transition: 1s;
     }
   }
@@ -108,13 +106,13 @@ p {
 .register-wrapper {
   margin: 5rem auto;
   padding: 5rem;
-  background: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 40%;
-  background-image: linear-gradient(to right,#6d6b6b, #a8a5a5, #f3f3f3 );
-  box-shadow: 1px 1px 5px black;
+  box-shadow: 5px 5px 10px black;
+  border: 1px ridge tomato;
+  color: white;
   i {
     font-size: 1.4rem;
     margin-right: 1rem;
@@ -133,11 +131,11 @@ p {
     margin-left: 2.1rem;
     font-size: 1.6rem;
     border: 1px solid black;
-    background: rgb(134, 181, 228);
+    background: tomato;
     color: white;
     transition: 1s;
     &:hover {
-      background: rgb(32, 173, 173);
+      background: #FF7F50;
       transition: 1s;
     }
   }
@@ -309,11 +307,26 @@ p {
 
 //Target area styling
 .targetarea-wrapper{
-  
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  border: 3px solid lime;
+  width: 50%;
   .targetarea-container{
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 3px solid tomato;
+    width: 15%;
 
     h4{
       color:white;
+    }
+
+    i {
+      color: white;
+      font-size: 2rem;
     }
   }
 }
@@ -359,7 +372,7 @@ p {
 .sets-wrapper{
 
   .sets-container{
-
+    border: 3px solid yellow;
     h4{
       color:white;
     }
