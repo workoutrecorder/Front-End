@@ -142,7 +142,7 @@ export class Exercises extends Component {
                 <div className="exercise-parting">
                     <ExerciseSummary 
                         workout = {this.state.workout}
-                        exercise = {this.state.exercises}
+                        exercises = {this.state.exercises}
                         targetArea={this.state.targetArea}
                         sets={this.state.sets}
                     />
