@@ -81,8 +81,8 @@ export class Exercises extends Component {
     getTargetArea = (exercise_id) => {
         // axios.get(`${url}/exercises/${userData.user_id}/targets/`, { headers:{Authorization: userData.token}})
         // let exercise_id = event.currentTarget.attributes.value.value
-    
-        axios.get(`${url}/exercises/${exercise_id}/targetarea/`)
+        let userData =JSON.parse(localStorage.getItem('userdata'))
+        axios.get(`${url}/users/${userData.user_id}/targetareas/`)
         .then(res => {
             this.setState({
                 targetArea: res.data
@@ -95,9 +95,10 @@ export class Exercises extends Component {
 
     }
 
-    getSets = (exercise_id) => {
+    getSets = () => {
+        let userData =JSON.parse(localStorage.getItem('userdata'))
         // axios.get(`${url}/exercises/${userData.user_id}/sets/`, { headers:{Authorization: userData.token}})
-        axios.get(`${url}/exercises/${exercise_id}/sets/`)
+        axios.get(`${url}/exercises/${userData.user_id}/sets/`)
         .then(res => {
             this.setState({
                 sets: res.data

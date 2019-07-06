@@ -21,10 +21,12 @@ class PostSets extends React.Component {
     }
 
     postSets = (event) =>{
+        let userData =JSON.parse(localStorage.getItem('userdata'))
         axios.post(`${url}/exercises/${this.props.exercise_id}/sets`, 
         {
         reps: this.state.reps,
         weight: this.state.weight, 
+        user_id: userData.user_id
         })
         .then(res => {
             console.log(res)

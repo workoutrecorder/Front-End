@@ -21,13 +21,15 @@ class PostTargetAreas extends React.Component {
     }
 
     postTargetArea = (event) =>{
+        let userData =JSON.parse(localStorage.getItem('userdata'))
         if (this.state.name.length === 0){
             event.preventDefault()
             toast.error("Select a target area.")
         } else {
         axios.post(`${url}/exercises/${this.props.exercise_id}/targetarea`, 
         {
-        name: this.state.name, 
+        name: this.state.name,
+        user_id: userData.user_id
         })
         .then(res => {
             console.log(res, this.state.name)
