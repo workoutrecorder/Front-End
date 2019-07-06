@@ -145,26 +145,28 @@ export class Exercises extends Component {
                         exercises = {this.state.exercises}
                         targetArea={this.state.targetArea}
                         sets={this.state.sets}
+                        getTargetArea={this.getTargetArea}
+                        getSets ={this.getSets}
                     />
                     <div>
                         <PostExercises/>
                         {this.state.exercises.map(exercise => {
                         return <div className = "reveal-container">
-                                    <div onClick = {this.addIdToReveal} 
-                                        className="exerciseContainer" 
-                                        key={exercise.id} 
-                                        value = {exercise.id}
-                                        >
-                                        <h4 value = {exercise.id}> Exercise: {exercise.name} </h4>
-                                        <i className="fas fa-dumpster" onClick={e => this.deleteExercises(e, exercise.id)}/>
-                                    </div>
+                            <div onClick = {this.addIdToReveal} 
+                                className="exerciseContainer" 
+                                key={exercise.id} 
+                                value = {exercise.id}
+                                >
+                                <h4 value = {exercise.id}> Exercise: {exercise.name} </h4>
+                                <i className="fas fa-dumpster" onClick={e => this.deleteExercises(e, exercise.id)}/>
+                            </div>
 
-                                    <div className = {this.state.reveal === true && exercise.id == this.state.revealId ? 'revealed': 'hidden'}>
-                                        <PostTargetAreas exercise_id = {exercise.id}/>
-                                        <PostSets exercise_id = {exercise.id}/>
-                                        <TargetArea targetArea = {this.state.targetArea} sets = {this.state.sets}/>
-                                    </div>
-                                </div>
+                            <div className = {this.state.reveal === true && exercise.id == this.state.revealId ? 'revealed': 'hidden'}>
+                                <PostTargetAreas exercise_id = {exercise.id}/>
+                                <PostSets exercise_id = {exercise.id}/>
+                                <TargetArea targetArea = {this.state.targetArea} sets = {this.state.sets}/>
+                            </div>
+                        </div>
                         })}
                     </div>
                 </div>

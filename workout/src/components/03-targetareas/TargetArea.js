@@ -34,15 +34,13 @@ export class TargetArea extends Component {
         return (
             <div className ="targetarea-wrapper">
                 {this.props.targetArea.map(target => {
-                    let targets = <h4> {target.name}</h4>
+                let targets = <h4> {target.name}</h4>
                 return  <div key={target.id} className="targetarea-container">
-                                {target.name !== '' ? targets : ''}
-                                <i className="fas fa-dumpster" onClick={e => this.deleteTargetarea(e, target.id)}/>
-                            </div>
+                    {target.name !== '' ? targets : ''}
+                    <i className="fas fa-dumpster" onClick={e => this.deleteTargetarea(e, target.id)}/>
+                </div>
                 })}
-                      
-                            <Sets sets = {this.props.sets}/>
-                        
+                <Sets sets = {this.props.sets}/>      
             </div>
         )
     }
